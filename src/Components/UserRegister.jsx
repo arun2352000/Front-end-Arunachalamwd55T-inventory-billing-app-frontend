@@ -17,6 +17,11 @@ const UserRegister = () => {
         .catch((err)=>{
             console.log(err);
         })
+
+        setEmail('')
+        setPassword('')
+        setRole('')
+        setUsername('')
     }
 
     return (
