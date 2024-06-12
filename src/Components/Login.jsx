@@ -7,6 +7,7 @@ const Login = () => {
     const [email, setEmail]= useState('')
     const [password, setPassword]= useState('')
     const [responseMsg, SetResponseMsg]= useState('')
+    const [token, setToken]=useState('')
 
     let navigate = useNavigate();
 
@@ -18,6 +19,7 @@ const Login = () => {
         await axios.post('http://localhost:4000/api/user//login',payloads)
         .then((res)=>{
             SetResponseMsg(res.data.message)
+            setToken(res.data.token)
             navigate('/dashboard')
     
     })
