@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({ setToken }) => {
 
     const [email, setEmail]= useState('')
     const [password, setPassword]= useState('')
     const [responseMsg, SetResponseMsg]= useState('')
-    const [token, setToken]=useState('')
+    
 
     let navigate = useNavigate();
 
