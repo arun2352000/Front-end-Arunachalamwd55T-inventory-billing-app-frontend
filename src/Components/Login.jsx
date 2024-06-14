@@ -16,7 +16,7 @@ const Login = ({ setToken }) => {
         console.log("login api payloads", password, email);
         const payloads={password, email}   
 
-        await axios.post('http://localhost:4000/api/user//login',payloads)
+        await axios.post('http://localhost:4000/api/user/login',payloads)
         .then((res)=>{
             SetResponseMsg(res.data.message)
             setToken(res.data.token)

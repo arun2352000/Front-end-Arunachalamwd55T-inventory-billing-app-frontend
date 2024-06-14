@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DashBoard from './Components/DashBoard';
 import TestGetCallUsingToken from './Components/TestGetCallUsingToken';
+import Product from './Components/product/Product';
 
 const App = () => {
   const [token, setToken]=useState('')
@@ -19,6 +20,8 @@ const App = () => {
       </Routes>
       </BrowserRouter>
       <TestGetCallUsingToken token={token}/>
+      <Product token={token} />
+
     </div>
 
   );
