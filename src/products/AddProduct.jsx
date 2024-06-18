@@ -21,7 +21,7 @@ export default function AddProduct() {
       try {
         const t = localStorage.getItem("access_token");
         const res = await fetch(
-          `http://localhost:3000/api/products/getproducts/${currentUser._id}`,
+          `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/getproducts/${currentUser._id}`,
           {
             headers: {
               Authorization: `Bearer ${t}`,
@@ -55,7 +55,7 @@ export default function AddProduct() {
       const t = localStorage.getItem("access_token");
       console.log(formdata);
       const res = await fetch(
-        `http://localhost:3000/api/products/addproduct/${currentUser._id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/addproduct/${currentUser._id}`,
         {
           method: "POST",
           headers: {
@@ -101,7 +101,7 @@ export default function AddProduct() {
 
       console.log(args);
       const res = await fetch(
-        `http://localhost:3000/api/products/deleteproduct/${id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/deleteproduct/${id}`,
         args
       );
       const data = await res.json();

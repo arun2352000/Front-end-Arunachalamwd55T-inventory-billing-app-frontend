@@ -21,14 +21,16 @@ export default function Signup() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3000/api/admin/signup", {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-          
-        },
-        body: JSON.stringify(formdata),
-      });
+      const res = await fetch(
+        "https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/signup",
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+          },
+          body: JSON.stringify(formdata),
+        }
+      );
       const data = await res.json();
       console.log(data);
 
@@ -38,7 +40,7 @@ export default function Signup() {
       }
       const token1 = data.token;
       localStorage.setItem("access_token", token1);
-     
+
       setSuccess(data.result);
       setLoading(false);
       setError(false);
@@ -55,7 +57,6 @@ export default function Signup() {
         </h1>
       </div>
       <div className="flex flex-col md:flex-row p-5 gap-3 mt-10 bg-slate-400 rounded-lg">
-        
         <div className="md:border-r-2 md:border-pink-700"></div>
         <div className="p-1 w-full md:w-full flex gap-1 flex-col">
           <form className="flex flex-col gap-2" onSubmit={handlesubmit}>

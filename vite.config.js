@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     // proxy: {
     //   "/api": {
-    //     target: 'http://localhost:3000',
+    //     target: 'https://back-end-arunachalamwd55t-inventry.onrender.com',
     //     secure: false,
     //   },
     // },
@@ -16,4 +16,4 @@ export default defineConfig({
 });
 
 //
-// 'http://localhost:3000'
+// 'https://back-end-arunachalamwd55t-inventry.onrender.com'

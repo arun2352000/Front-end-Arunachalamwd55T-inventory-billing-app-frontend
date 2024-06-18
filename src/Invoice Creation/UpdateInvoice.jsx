@@ -42,9 +42,9 @@ export const UpdateInvoice = () => {
     e.preventDefault();
 
     try {
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/invoices/updateexistinginvoice/${paramsid}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/updateexistinginvoice/${paramsid}`,
         {
           method: "POST",
           headers: {
@@ -76,16 +76,15 @@ export const UpdateInvoice = () => {
   };
 
   const handledelete = async (delete_id) => {
-  
     try {
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/invoices/deleteproductfrominvoice/${paramsid}?delete_id=${delete_id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/deleteproductfrominvoice/${paramsid}?delete_id=${delete_id}`,
         {
           method: "DELETE",
-          headers:{
+          headers: {
             Authorization: `Bearer ${t}`,
-          }
+          },
         }
       );
       const data = await res.json();
@@ -105,12 +104,15 @@ export const UpdateInvoice = () => {
   useEffect(() => {
     const fetching = async () => {
       try {
-        const t=localStorage.getItem("access_token");
-        const res = await fetch(`http://localhost:3000/api/invoices/updateinvoice/${paramsid}`,{
-          headers:{
-            Authorization: `Bearer ${t}`,
+        const t = localStorage.getItem("access_token");
+        const res = await fetch(
+          `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/updateinvoice/${paramsid}`,
+          {
+            headers: {
+              Authorization: `Bearer ${t}`,
+            },
           }
-        });
+        );
 
         if (res.ok) {
           const data = await res.json();

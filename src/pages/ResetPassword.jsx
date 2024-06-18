@@ -8,13 +8,16 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/admin/reset-password", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formdata),
-    });
+    const res = await fetch(
+      "https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/reset-password",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      }
+    );
     const data = await res.json();
     if (data.success == false) {
       console.log(data.message);

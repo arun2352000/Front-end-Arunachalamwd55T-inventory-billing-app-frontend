@@ -19,11 +19,14 @@ export default function Editcustomer() {
   useEffect(() => {
     const fetching = async () => {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:3000/api/customers/editcustomer/${id}`,{
-        headers:{
-          Authorization: `Bearer ${t}`,
+      const res = await fetch(
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/editcustomer/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${t}`,
+          },
         }
-      });
+      );
       const data = await res.json();
       if (data.success == false) {
         console.log(data.message);
@@ -42,14 +45,17 @@ export default function Editcustomer() {
     e.preventDefault();
     try {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:3000/api/customers/updatecustomer/${id}`, {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-          Authorization: `Bearer ${t}`,
-        },
-        body: JSON.stringify(formdata),
-      });
+      const res = await fetch(
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/updatecustomer/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+            Authorization: `Bearer ${t}`,
+          },
+          body: JSON.stringify(formdata),
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         setError(data.message);

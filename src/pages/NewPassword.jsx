@@ -27,13 +27,16 @@ const NewPassword = () => {
       setError("Both Password Must be Same");
       return;
     }
-    const res = await fetch(`http://localhost:3000/api/admin/newpassword/${userId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ newPassword, confirmNewPassword }),
-    });
+    const res = await fetch(
+      `https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/newpassword/${userId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ newPassword, confirmNewPassword }),
+      }
+    );
     const data = await res.json();
     if (data.success === false) {
       setError(data.message);

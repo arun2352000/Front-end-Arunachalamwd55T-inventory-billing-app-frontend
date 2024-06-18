@@ -19,7 +19,7 @@ export default function Dashboard() {
         const t = localStorage.getItem("access_token");
         console.log(t);
         const res = await fetch(
-          `http://localhost:3000/api/dashboard/getdashboarddetails/${currentUser._id}`,
+          `https://back-end-arunachalamwd55t-inventry.onrender.com/api/dashboard/getdashboarddetails/${currentUser._id}`,
           {
             headers: {
               "content-type": "application/json",
@@ -29,7 +29,7 @@ export default function Dashboard() {
         );
         const data = await res.json();
         console.log(data);
-        
+
         if (data.success === false) {
           console.log(data.message);
         }

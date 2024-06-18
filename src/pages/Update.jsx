@@ -24,7 +24,7 @@ export default function Update() {
       setLoading(true);
       const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/admin/update/${currentUser._id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/update/${currentUser._id}`,
         {
           method: "POST",
           headers: {
@@ -57,12 +57,15 @@ export default function Update() {
     try {
       const t = localStorage.getItem("access_token");
       console.log("delete finished");
-      const res = await fetch(`http://localhost:3000/api/admin/logout`, {
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${t}`,
-        },
-      });
+      const res = await fetch(
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/logout`,
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${t}`,
+          },
+        }
+      );
 
       const data = await res.json();
       console.log(data);

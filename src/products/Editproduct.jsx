@@ -17,7 +17,7 @@ export default function EditProduct() {
     const fetching = async () => {
       const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/products/editproduct/${params.id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/editproduct/${params.id}`,
         {
           headers: {
             Authorization: `Bearer ${t}`,
@@ -43,7 +43,7 @@ export default function EditProduct() {
     try {
       const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/products/editproductdone/${params.id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/editproductdone/${params.id}`,
         {
           method: "POST",
           headers: {

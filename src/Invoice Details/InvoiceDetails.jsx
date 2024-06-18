@@ -28,10 +28,10 @@ export default function InvoiceDetails() {
 
       // Update the URL with the new parameters
       window.history.replaceState({}, "", `?${params.toString()}`);
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
 
       const res = await fetch(
-        `http://localhost:3000/api/invoices/getallInvoices/${
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/getallInvoices/${
           currentUser._id
         }?${params.toString()}`,
         {
@@ -70,10 +70,10 @@ export default function InvoiceDetails() {
 
     // Update the URL with the new parameters
     window.history.replaceState({}, "", `?${params.toString()}`);
-    const t=localStorage.getItem("access_token");
+    const t = localStorage.getItem("access_token");
 
     const res = await fetch(
-      `http://localhost:3000/api/invoices/getallInvoices/${
+      `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/getallInvoices/${
         currentUser._id
       }?${params.toString()}`,
       {
@@ -96,9 +96,9 @@ export default function InvoiceDetails() {
 
   const handledelete = async (deleteid) => {
     try {
-      const t =localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/invoices/deleteinvoice?deleteid=${deleteid}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/deleteinvoice?deleteid=${deleteid}`,
         {
           method: "DELETE",
           headers: {

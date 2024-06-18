@@ -32,12 +32,13 @@ export default function Invoice() {
 
   const handlesearchProductID = async () => {
     try {
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,{
-          headers:{
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,
+        {
+          headers: {
             Authorization: `Bearer ${t}`,
-          }
+          },
         }
       );
       const data = await res.json();
@@ -66,12 +67,13 @@ export default function Invoice() {
 
   const handlesearchCustomerID = async () => {
     try {
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/customers/getcustomer/${currentCustomer.customerID}/${currentUser._id}`,{
-          headers:{
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/getcustomer/${currentCustomer.customerID}/${currentUser._id}`,
+        {
+          headers: {
             Authorization: `Bearer ${t}`,
-          }
+          },
         }
       );
       const data = await res.json();
@@ -153,9 +155,9 @@ export default function Invoice() {
         currentCustomer,
         date,
       });
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/invoices/createInvoice/${currentUser._id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/createInvoice/${currentUser._id}`,
         {
           method: "POST",
           headers: {
@@ -220,8 +222,9 @@ export default function Invoice() {
           </div>
 
           {error && <p className="p-2 font-semibold text-red-700">{error}</p>}
-          {message && <p className="p-2 font-semibold text-red-700">{message}</p>}
-
+          {message && (
+            <p className="p-2 font-semibold text-red-700">{message}</p>
+          )}
         </div>
         <div className="flex items-center gap-5">
           <label className="w-32 font-semibold">Product Name</label>

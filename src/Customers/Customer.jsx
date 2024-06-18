@@ -19,7 +19,7 @@ export default function Customer() {
     const fetching = async () => {
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/customers/getallcustomer/${currentUser._id}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/getallcustomer/${currentUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${t}`,
@@ -46,7 +46,7 @@ export default function Customer() {
       setLoading(true);
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/customers/addcustomer/${currentUser._id}  `,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/addcustomer/${currentUser._id}  `,
         {
           method: "POST",
           headers: {
@@ -76,12 +76,16 @@ export default function Customer() {
   const handleDelete = async (id) => {
     try {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:3000/api/customers/deletecustomer/${id}`, {
-        method: "DELETE",headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${t}`,
-        },
-      });
+      const res = await fetch(
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/customers/deletecustomer/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${t}`,
+          },
+        }
+      );
       const data = await res.json();
       setCustomer(customer.filter((cus) => cus._id !== id));
     } catch (error) {

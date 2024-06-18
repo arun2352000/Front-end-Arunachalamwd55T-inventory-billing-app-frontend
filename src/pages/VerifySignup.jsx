@@ -15,7 +15,7 @@ export default function VerifySignup() {
     const fetching = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/admin/verify/${id}/${token}`
+          `https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/verify/${id}/${token}`
         );
         const data = await res.json();
 
@@ -35,7 +35,7 @@ export default function VerifySignup() {
 
   const handlesubmit = async () => {
     const res = await fetch(
-      `http://localhost:3000/api/admin/verificationstatus/${id}/${token}`
+      `https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/verificationstatus/${id}/${token}`
     );
     const data = await res.json();
     if (data.success === false) {

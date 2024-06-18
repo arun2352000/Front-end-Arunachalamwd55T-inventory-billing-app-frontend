@@ -22,12 +22,13 @@ export const UpdateExistingInvoiceProductDetails = () => {
   useEffect(() => {
     const fetching = async () => {
       try {
-        const t=localStorage.getItem("access_token");
+        const t = localStorage.getItem("access_token");
         const res = await fetch(
-          `http://localhost:3000/api/invoices/updateproductquantityinexisitinginvoice/${id}?productid=${productid}`,{
-            headers:{
+          `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/updateproductquantityinexisitinginvoice/${id}?productid=${productid}`,
+          {
+            headers: {
               Authorization: `Bearer ${t}`,
-            }
+            },
           }
         );
 
@@ -56,9 +57,9 @@ export const UpdateExistingInvoiceProductDetails = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const t=localStorage.getItem("access_token");
+      const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:3000/api/invoices/updateproductsdoneinexistinginvoice/${id}?productid=${productid}`,
+        `https://back-end-arunachalamwd55t-inventry.onrender.com/api/invoices/updateproductsdoneinexistinginvoice/${id}?productid=${productid}`,
         {
           method: "POST",
           headers: {

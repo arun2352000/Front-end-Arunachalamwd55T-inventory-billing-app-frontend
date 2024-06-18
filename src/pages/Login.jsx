@@ -18,18 +18,20 @@ export default function Login() {
       [e.target.id]: e.target.value,
     });
   };
- 
+
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/admin/login", {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-         
-        },
-        body: JSON.stringify(formdata),
-      });
+      const res = await fetch(
+        "https://back-end-arunachalamwd55t-inventry.onrender.com/api/admin/login",
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+          },
+          body: JSON.stringify(formdata),
+        }
+      );
       const data = await res.json();
 
       if (data.success === false) {
@@ -38,7 +40,7 @@ export default function Login() {
       }
       dispatch(loginstart(data.rest));
       const token1 = data.token;
-      
+
       localStorage.setItem("access_token", token1);
 
       setError(false);
@@ -59,7 +61,6 @@ export default function Login() {
         </h1>
       </div>
       <div className="flex flex-col mt-10 p-5 gap-5 bg-purple-100 shadow-md md:shadow-lg lg:shadow-2xl rounded-t-xl md:flex-row">
-       
         <div className="md:border-r-2 md:border-pink-700"></div>
         <div className="h-full">
           <form className="flex flex-col gap-6" onSubmit={handlesubmit}>
